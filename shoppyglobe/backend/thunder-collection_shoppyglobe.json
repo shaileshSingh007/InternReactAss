@@ -1,0 +1,75 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "ShoppyGlobe API Tests",
+  "dateExported": "2024-03-06T12:00:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "name": "Products",
+      "id": "products"
+    },
+    {
+      "name": "Auth",
+      "id": "auth"
+    },
+    {
+      "name": "Cart",
+      "id": "cart"
+    }
+  ],
+  "requests": [
+    {
+      "id": "get-products",
+      "name": "Get All Products",
+      "url": "http://localhost:5000/api/products",
+      "method": "GET",
+      "folder": "products"
+    },
+    {
+      "id": "get-product",
+      "name": "Get Product by ID",
+      "url": "http://localhost:5000/api/products/:id",
+      "method": "GET",
+      "folder": "products"
+    },
+    {
+      "id": "register",
+      "name": "Register User",
+      "url": "http://localhost:5000/api/auth/register",
+      "method": "POST",
+      "folder": "auth",
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+      }
+    },
+    {
+      "id": "login",
+      "name": "Login User",
+      "url": "http://localhost:5000/api/auth/login",
+      "method": "POST",
+      "folder": "auth",
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+      }
+    },
+    {
+      "id": "add-to-cart",
+      "name": "Add to Cart",
+      "url": "http://localhost:5000/api/cart",
+      "method": "POST",
+      "folder": "cart",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"productId\": \"{{productId}}\",\n    \"quantity\": 1\n}"
+      }
+    }
+  ]
+} 
